@@ -25,7 +25,7 @@ app.use(express.json()); // to parse json payload from req.body.
 
 
 const corsOptions = {
-    origin: 'https://quickchats.vercel.app/',
+    origin: 'https://quickchats.vercel.app',
 }
 
 app.use(cors(corsOptions));
