@@ -24,6 +24,11 @@ dotenv.config(); // to get accesst o env variables
 
 // const __dirname = path.resolve();
 
+const corsOptions = {
+    origin: 'https://quickchats.vercel.app',
+    credentials: true,
+}
+
 app.use(cors());
 app.use(express.json()); // to parse json payload from req.body.
 app.use(cookieParser()); // to parse the incoming cookie.
