@@ -15,6 +15,8 @@ export const generateJWETtoken = async (userId, res) => {
         secure: process.env.NODE_ENV !== 'development'
 
     });
+
+    return token;
 }
 
 export default generateJWETtoken;

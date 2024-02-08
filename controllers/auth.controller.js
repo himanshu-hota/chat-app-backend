@@ -39,7 +39,7 @@ export const signup = async (req, res) => {
 
         if (newUser) {
             // Generate JWT Token here
-            await generateJWETtoken(newUser._id.toString(), res);
+            const token = await generateJWETtoken(newUser._id.toString(), res);
 
             // SAVE IN DB
             await newUser.save();
@@ -51,7 +51,8 @@ export const signup = async (req, res) => {
                 profilePic: newUser.profilePic,
                 username: newUser.username,
                 gender: user?.gender,
-                createdAt: user?.createdAt
+                createdAt: user?.createdAt,
+                token
             });
 
 
@@ -83,7 +84,7 @@ export const login = async (req, res) => {
 
         if (!isPasswordCorrect || !user) return res.status(400).json({ message: "Invalid credentials" });
 
-        generateJWETtoken(user?._id.toString(), res);
+        const token = await generateJWETtoken(user?._id.toString(), res);
 
         return res.status(200).json({
             _id: user?._id.toString(),
@@ -91,7 +92,8 @@ export const login = async (req, res) => {
             profilePic: user?.profilePic,
             username: user?.username,
             gender: user?.gender,
-            createdAt: user?.createdAt
+            createdAt: user?.createdAt,
+            token
         })
 
 
