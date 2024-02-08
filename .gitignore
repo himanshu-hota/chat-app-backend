@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+
+# macOS
+.DS_Store
+
+# JetBrains IDEs
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# Compiled binary files
+*.bin
+
+# Dependency directories
+/bower_components/
+/jspm_packages/
+
+# User-specific files
+npm-debug.log
+yarn-debug.log
+yarn-error.log
