@@ -24,19 +24,11 @@ dotenv.config(); // to get accesst o env variables
 
 // const __dirname = path.resolve();
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://quickchats.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-});
+const corsOptions = {
+    origin: '*',
+}
 
-// const corsOptions = {
-//     origin: 'https://quickchats.vercel.app',
-//     credentials: true,
-// }
-
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(express.json()); // to parse json payload from req.body.
 app.use(cookieParser()); // to parse the incoming cookie.
 
